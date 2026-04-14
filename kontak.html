@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body
+    class="bg-cover bg-center text-blue-900"
+    style="
+      background-image: url(https://i.pinimg.com/1200x/46/65/07/4665077f5952c2dec141ef231d16b108.jpg);
+    "
+  >
+    <!-- HEADER / NAVBAR -->
+    <header class="bg-white">
+      <nav class="flex justify-center py-3 shadow-sm">
+        <div class="hidden lg:flex gap-12 text-blue-900 font-semibold">
+          <a href="index.html" class="hover:text-yellow-500">Home</a>
+          <a href="galeri.html" class="hover:text-yellow-500">Gallery</a>
+          <a href="kontak.html" class="hover:text-yellow-500">Contact</a>
+          <a href="About me.html" class="hover:text-yellow-500">About Me</a>
+          <a href="blog.html" class="hover:text-yellow-500">Blog</a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- SPASI -->
+    <div class="pt-10"></div>
+
+    <!-- ================= CONTACT ================= -->
+    <section
+      class="max-w-5xl mx-auto bg-white/80 backdrop-blur p-8 rounded-xl shadow mb-10"
+    >
+      <h1 class="text-3xl font-bold text-center mb-6">Contact Me 📬</h1>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- FORM -->
+        <form id="contactForm" class="space-y-4">
+          <div>
+            <label class="block font-semibold">Nama</label>
+            <input
+              id="nama"
+              type="text"
+              placeholder="Masukkan nama kamu"
+              class="w-full p-2 rounded border focus:ring-2 focus:ring-blue-400"
+              required
+            />
+          </div>
+
+          <div>
+            <label class="block font-semibold">Email</label>
+            <input
+              id="email"
+              type="email"
+              placeholder="Masukkan email kamu"
+              class="w-full p-2 rounded border focus:ring-2 focus:ring-blue-400"
+              required
+            />
+          </div>
+
+          <div>
+            <label class="block font-semibold">Pesan</label>
+            <textarea
+              id="pesan"
+              rows="4"
+              placeholder="Tulis pesan kamu..."
+              class="w-full p-2 rounded border focus:ring-2 focus:ring-blue-400"
+              required
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="bg-blue-900 text-white px-6 py-2 rounded hover:bg-blue-700 transition"
+          >
+            Kirim
+          </button>
+        </form>
+
+        <!-- INFO KONTAK -->
+        <div class="space-y-4">
+          <h2 class="text-xl font-semibold">Info Kontak</h2>
+          <p>📧 Email: avven01r@gmail.com</p>
+          <p>📱 WhatsApp: 082193742074</p>
+          <p>
+            <a
+              href="https://www.instagram.com/numustika"
+              target="_blank"
+              class="text-blue-500 hover:underline"
+              >📸 Instagram: @numustika</a
+            >
+          </p>
+          <p>📍 Lokasi: Samarinda, Indonesia</p>
+
+          <p class="italic mt-4">Jangan ragu untuk menghubungi saya ✨</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= HASIL PESAN ================= -->
+    <section
+      class="max-w-5xl mx-auto bg-white/80 backdrop-blur p-6 rounded-xl shadow mb-10"
+    >
+      <h2 class="text-xl font-bold mb-4">Pesan Masuk 💌</h2>
+
+      <div id="hasilPesan" class="space-y-3">
+        <!-- pesan muncul di sini -->
+      </div>
+    </section>
+
+    <!-- JAVASCRIPT -->
+    <script>
+      const form = document.getElementById("contactForm");
+      const hasil = document.getElementById("hasilPesan");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const nama = document.getElementById("nama").value;
+        const email = document.getElementById("email").value;
+        const pesan = document.getElementById("pesan").value;
+
+        const box = document.createElement("div");
+        box.className = "bg-white p-4 rounded-lg shadow";
+
+        box.innerHTML = `
+          <p class="font-semibold text-blue-900">${nama}</p>
+          <p class="text-sm text-gray-500">${email}</p>
+          <p class="mt-2">${pesan}</p>
+        `;
+
+        hasil.prepend(box); // pesan terbaru di atas
+
+        form.reset();
+      });
+    </script>
+  </body>
+</html>
